@@ -1,0 +1,17 @@
+{
+    "id": "Nederlands",
+    "home": {
+        "welcome": "Welkom",
+        "go_to": "Ga naar",
+        "instruction": "Het doel van deze applicatie is om te tonen hoe je de taal van deze app kan aanpassen als een instelling. De app onthoudt deze instelling en neemt dezelfde taal aan wanneer de app later heropstart."
+    },
+    "settings": {
+        "title": "Instellingen",
+        "language": "Taal:"
+    },
+    "about":{
+        "title": "Extra scherm",
+        "info": "Informatie:",
+        "explanation": "Dit scherm gebruikt geen redux en is niet verbonden met de 'settings store'. Het luistert alleen naar de 'locale' parameter van de I18n plugin. Dit is hier mogelijk omdat dit scherm niet direct wordt getoond. Bij het opstarten wordt het 'Welkom' scherm getoond, en tijdens het aanpassen van de taalinstelling wordt het 'Instellingen' scherm getoond."
+    }
+}
