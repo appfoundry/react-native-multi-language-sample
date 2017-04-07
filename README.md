@@ -39,7 +39,7 @@ I18n.translations = {
 ```
 After adding these translations, we can delete the remaining code in the I18n.js template file.
 > That remaining code (a _switch_ based on the locale) does almost the same as the translations object we just defined, the difference being the remaining code would require the one translation file of the device’s language (if available). When we would want to switch the language in our app we would have to import translations at that moment, and our code would become a mess.
-With the translations object, we can keep things clear and the configuration in one place.
+With the translations object we can keep things clear, keep the configuration in one place and have the translations ready to use.
 
 ## Language as a user-specific setting
 
@@ -155,7 +155,7 @@ We can fill in the labels of the picker's options by using an ‘id’ parameter
 There is now one more thing left to do: **each view that implements I18n and is rendered on startup needs to have the language setting connected** to the view. We will need to use this _language_ property in our _I18n.translate_ function like so:
 `I18n.t(‘my.word’, { locale: this.props.settings.language })`. (Take note of the _locale_ parameter being set in the translation function.)
 
-This is necessary because the views rendered on startup will not be aware of the locale being set in the startup saga. These views will have rendered before that (it’s a race condition) so by mapping the language setting to the props of those views we will have to trigger their translation again.
+This is necessary because the views rendered on startup will not be aware of the locale being set in the startup saga. These views will have rendered before that (it’s a race condition) so by mapping the language setting to the props of those views, we can trigger their translation and show the views in the correct language.
 
 > If you’re not sure if the view will be rendered on startup you can connect the view and map the property just in case, there should not be any performance issues.
 
@@ -201,7 +201,7 @@ const AppNavigator = StackNavigator({
 ```
 
 We declare the titles of the views as a parameter which will be passed when navigating to a certain screen.
-> Unfortunately I have not yet found a way how to update the title of the root view. For now I use a static title such as a company name or the application's name. If you have an idea let us know in the comments below! 
+> Unfortunately I have not yet found a way how to update the title of the root view. For now I use a static title such as a company name or the application's name. If you have an idea please let us know! 
 
 Pass the title as an extra parameter in the navigate function:
 
