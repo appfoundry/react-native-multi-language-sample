@@ -82,7 +82,7 @@ Create the saga that will update _I18n.locale_:
 // ../Sagas/SettingsSaga.js
 import I18n from 'react-native-i18n'
 
-export function updateLanguage(action) {
+export function* updateLanguage(action) {
   const {language} = action
   I18n.locale = language
 }
@@ -136,8 +136,8 @@ render(){
   const {setParams} = this.props.navigation
   const languageOptions = Object.keys(I18n.translations).map((lang, i) => {
     return (<Picker.Item key={ i }
-                          label={ I18n.translations[lang].id }
-                          value={ lang } />)
+                         label={ I18n.translations[lang].id }
+                         value={ lang } />)
   })
 
   return(<Picker selectedValue={ language }
@@ -237,7 +237,7 @@ A sample project with the multi-language setup as described above can be found [
 
 # Summary
 
-An app that can adjust its language to the target system, and gives users the possibility to switch languages, increases the accessibility of the app. Such an app will be ranked higher in the app stores and consequently gain more attention of the smartphone users than an app with a fixed language. I hope this blog post has been informative enough to show you how to implement this in React Native apps and helps you getting your app out there!
+An app that can adjust its language to the target system, and gives users the possibility to switch languages, increases the accessibility of the app. Such an app will be ranked higher in the app stores and consequently gain more attention of the smartphone users than an app with a fixed language. I hope this tutorial has been informative enough to show you how to implement this in React Native apps and helps you getting your app out there!
 
 
 ## License
