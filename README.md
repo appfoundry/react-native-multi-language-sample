@@ -22,7 +22,7 @@ import RootContainer from './RootContainer'
 
 > I import I18n.js in my App.js file because App.js is used in index.android.js and in index.ios.js, which makes it a top-level application file, and because it does not use redux and react-native-i18n. As you can see, I import it before the RootContainer component. I do this because I want the I18n configuration to be available at the root of my app _before_ I make use of react-native-i18n’s translate function in components (such as RootContainer).
 
-Define `I18n.fallbacks = true` in the custom I18n.js file. When the device's locale is not available in the defined translations, it will fall back to the default locale. This is 'en' (English) by default but we can adjust this by, for example, defining `I18n.defaultLocale = 'nl'`. 
+Define `I18n.fallbacks = true` in the custom I18n.js file. When the device's locale is not available in the defined translations, it will fall back to the default locale. This is 'en' (English) by default but we can adjust this by, for example, defining `I18n.defaultLocale = 'nl'`.
 
 > If your app does not support English, it is imperative to change the _defaultLocale_'s value!
 
@@ -113,7 +113,7 @@ export default function* root() {
 In the application’s 'Startup' saga we will have to call the ‘changeLanguage’ action, which uses the _language_ parameter from the 'Settings' reducer, to **enforce the correct language**.
 ```js
 // ../Sagas/StartupSagas.js
-import { put, select } from 'redux-saga/effects' 
+import { put, select } from 'redux-saga/effects'
 import SettingsActions from '../Redux/SettingsRedux'
 
 export const selectLanguage = state => state.settings.language // get the language from the settings reducer
@@ -210,12 +210,12 @@ Pass the title as an extra parameter in the navigate function:
   <MyButton buttonTitle={ I18n.t('home.go_to', { locale: language }).toUpperCase() + " " + I18n.t('settings.title', { locale: language }).toUpperCase() }
             onButtonPress={ () => navigate('Settings', {
                               title: I18n.t('settings.title', { locale: language }) // <- passing the title here
-                            }) 
+                            })
                           } />
   <MyButton buttonTitle={ I18n.t('home.go_to', { locale: language }).toUpperCase() + " " + I18n.t('about.title', { locale: language }).toUpperCase() }
             onButtonPress={ () => navigate('About', {
                               title: I18n.t('about.title', { locale: language }) // <- passing the title here
-                            }) 
+                            })
                           } />
 ```
 
@@ -231,9 +231,9 @@ _languageChanged = (changeLanguage, setParams) => (newLang) => {
 }
 ```
 
-# Sample
+# Blogpost
 
-A sample project with the multi-language setup as described above can be found [here](https://github.com/appfoundry/react-native-multi-language-sample/tree/master/MultiLangSampleApp).
+A blogpost of this tutorial can be found [here](https://www.appfoundry.be/blog/2017/03/27/react-native-multi-language).
 
 # Summary
 
